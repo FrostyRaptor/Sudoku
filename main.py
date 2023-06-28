@@ -19,6 +19,7 @@ def check_row(board, num, index):
     for x in range(3):
         for y in range(3):
             if board[index][x][y] == num:
+                print('check2')
                 return False
             else:
                 continue 
@@ -52,4 +53,4 @@ board = [[["000", "001", "002"], ["010", "011", "012"], ["020", "021", "022"]],
 board = random_board(board)
 
 print(print_board(board))
-print('Check')
+print('end')
