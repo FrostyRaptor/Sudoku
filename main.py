@@ -32,7 +32,7 @@ def random_board(board):
             for z in range(3):
                 while True:
                     num = random.randint(1,9)
-                    if check_row(result, num, x) == True:
+                    if check_row(result, num, x):
                         result[x][y][z] = str(num)
                         break
                     else:
