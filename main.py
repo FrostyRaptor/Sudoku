@@ -18,28 +18,26 @@ def print_board(board):
 def check_row(board, num, index):
     for x in range(3):
         for y in range(3):
-            if board[index][x][y] == num:
-                print('check2')
-                return False
+            if board[index][x][y] != num:
+                continue
             else:
-                continue 
+                print('Check 5')
+                return False
     return True
 
 def random_board(board):
-    result = board
-
+    lst = []
     for x in range(9):
         for y in range(3):
             for z in range(3):
                 while True:
                     num = random.randint(1,9)
-                    if check_row(result, num, x):
-                        result[x][y][z] = str(num)
+                    if check_row(lst, num, x):
+                        lst[x][y][z] = str(num)
                         break
                     else:
                         continue 
-
-    return result
+    return lst
 
 board = [[["000", "001", "002"], ["010", "011", "012"], ["020", "021", "022"]], 
          [["100", "101", "102"], ["110", "111", "112"], ["120", "121", "122"]], 
