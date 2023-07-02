@@ -2,53 +2,58 @@ import random
 
 def print_board(board):
     result = ''
-    count = 0
+    num_one = 1
+    num_two = 1
     for lst in board:
         for item in lst:
-            result += ' '.join(item)
-            result += '  '
-        count += 1
+            if num_one % 3 != 0:
+                result += item + ' '
+                num_one += 1
+            else:
+                result += item + '  '
+                num_one += 1
         result += '\n'
-        if count % 3 != 0:
-            continue
+        if num_two % 3 != 0:
+            num_two += 1
         else:
             result += '\n'
+            num_two += 1
     return result
 
-def check_row(board, num, index):
-    for x in range(3):
-        for y in range(3):
-            if board[index][x][y] != num:
-                continue
-            else:
-                print('Check 5')
-                return False
+def check_row(board, num, row):
+    lst = board[index]
+    for item in lst:
+        if num != item:
+            continue
+        else:
+            return False
     return True
 
-def random_board(board):
-    lst = []
-    for x in range(9):
-        for y in range(3):
-            for z in range(3):
-                while True:
-                    num = random.randint(1,9)
-                    if check_row(lst, num, x):
-                        lst[x][y][z] = str(num)
-                        break
-                    else:
-                        continue 
-    return lst
+def check_column(board, num, column):
+    # Check column in the board
+    return 0
 
-board = [[["000", "001", "002"], ["010", "011", "012"], ["020", "021", "022"]], 
-         [["100", "101", "102"], ["110", "111", "112"], ["120", "121", "122"]], 
-         [["200", "201", "202"], ["210", "211", "212"], ["220", "221", "222"]], 
-         [["300", "301", "302"], ["310", "311", "312"], ["320", "321", "322"]], 
-         [["400", "401", "402"], ["410", "411", "412"], ["420", "421", "422"]], 
-         [["500", "501", "502"], ["510", "511", "512"], ["520", "521", "522"]], 
-         [["600", "601", "602"], ["610", "611", "612"], ["620", "621", "622"]], 
-         [["700", "701", "702"], ["710", "711", "712"], ["720", "721", "722"]], 
-         [["800", "801", "802"], ["810", "811", "812"], ["820", "821", "822"]]]
-board = random_board(board)
+def check_block(board, num, s_index):
+    # Check 9x9 block in board
+    return 0
+
+def check_all(board, num, column, s_index):
+    # Check all
+    return 0
+
+def random_board(board):
+    # Ranomize the board from its default
+    return 0
+
+board = [['00', '01', '02', '03', '04', '05', '06', '07', '08'],
+         ['10', '11', '12', '13', '14', '15', '16', '17', '18'],
+         ['20', '21', '22', '23', '24', '25', '26', '27', '28'],
+         ['30', '31', '32', '33', '34', '35', '36', '37', '38'],
+         ['40', '41', '42', '43', '44', '45', '46', '47', '48'],
+         ['50', '51', '52', '53', '54', '55', '56', '57', '58'],
+         ['60', '61', '62', '63', '64', '65', '66', '67', '68'],
+         ['70', '71', '72', '73', '74', '75', '76', '77', '78'],
+         ['80', '81', '82', '83', '84', '85', '86', '87', '88']]
+# board = random_board(board)
 
 print(print_board(board))
-print('end')
