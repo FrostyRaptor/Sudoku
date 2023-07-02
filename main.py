@@ -20,8 +20,9 @@ def print_board(board):
             num_two += 1
     return result
 
+# Done
 def check_row(board, num, row):
-    lst = board[index]
+    lst = board[row]
     for item in lst:
         if num != item:
             continue
@@ -29,21 +30,45 @@ def check_row(board, num, row):
             return False
     return True
 
+# Done
 def check_column(board, num, column):
-    # Check column in the board
-    return 0
+    for x in range(9):
+        if board[x][column] != num:
+            continue
+        else:
+            return False
+    return True
 
 def check_block(board, num, s_index):
     # Check 9x9 block in board
-    return 0
+    return True
 
-def check_all(board, num, column, s_index):
-    # Check all
-    return 0
+# Done
+def check_all(board, num, row, column, s_index):
+    if check_row(board, num, row):
+        if check_column(board, num, column):
+            if check_block(board, num, s_index):
+                return True
+            else:
+                return False
+        else:
+            return False
+    else:
+        return False
 
 def random_board(board):
-    # Ranomize the board from its default
-    return 0
+    result = board
+
+    for x in range(9):
+        for y in range(9):
+            while True:
+                num = random.randint(1,9)
+                if check_all(result, num, x, y, 1):
+                    result[x][y] = str(num)
+                else:
+                    continue
+
+    return result
 
 board = [['00', '01', '02', '03', '04', '05', '06', '07', '08'],
          ['10', '11', '12', '13', '14', '15', '16', '17', '18'],
