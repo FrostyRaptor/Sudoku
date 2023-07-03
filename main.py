@@ -1,5 +1,6 @@
 import random
 
+# Done
 def print_board(board):
     result = ''
     num_one = 1
@@ -43,30 +44,29 @@ def check_block(board, num, s_index):
     # Check 9x9 block in board
     return True
 
-# Done
-def check_all(board, num, row, column, s_index):
+def check_all(board, num, row, column):
     if check_row(board, num, row):
         if check_column(board, num, column):
-            if check_block(board, num, s_index):
                 return True
-            else:
-                return False
         else:
             return False
     else:
         return False
+
+def assign_num(board, x, y):
+    while True:
+        num = random.randint(1,9)
+        if check_all(board, num, x, y):
+            return str(num)
+        else:
+            continue
 
 def random_board(board):
     result = board
 
     for x in range(9):
         for y in range(9):
-            while True:
-                num = random.randint(1,9)
-                if check_all(result, num, x, y, 1):
-                    result[x][y] = str(num)
-                else:
-                    continue
+            result[x][y] = assign_num(result, x, y)
 
     return result
 
@@ -79,6 +79,6 @@ board = [['00', '01', '02', '03', '04', '05', '06', '07', '08'],
          ['60', '61', '62', '63', '64', '65', '66', '67', '68'],
          ['70', '71', '72', '73', '74', '75', '76', '77', '78'],
          ['80', '81', '82', '83', '84', '85', '86', '87', '88']]
-# board = random_board(board)
+board = random_board(board)
 
 print(print_board(board))
