@@ -45,13 +45,20 @@ def check_block(board, num, s_index):
     # Check 9x9 block in board
     return True
 
-# Need to Do
+# Done
 def check_all(board, num, row, column):
     if check_row(board, num, row):
-        return True
+        if check_column(board, num, column):
+            if check_block(board, num, 0):
+                return True
+            else:
+                return False
+        else:
+            return False
     else:
         return False
 
+# Done
 def random_board(board):
     result = board
 
