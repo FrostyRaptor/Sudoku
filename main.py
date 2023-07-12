@@ -3,22 +3,22 @@ import random
 # Done
 def print_board(board):
     result = ''
-    num_one = 1
-    num_two = 1
+    x = 1
+    y = 1
     for lst in board:
         for item in lst:
-            if num_one % 3 != 0:
+            if x % 3 != 0:
                 result += item + ' '
-                num_one += 1
+                x += 1
             else:
                 result += item + '  '
-                num_one += 1
+                x += 1
         result += '\n'
-        if num_two % 3 != 0:
-            num_two += 1
+        if y % 3 != 0:
+            y += 1
         else:
             result += '\n'
-            num_two += 1
+            y += 1
     return result
 
 # Done
