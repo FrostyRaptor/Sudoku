@@ -31,7 +31,7 @@ def check_row(board, num, row):
             return False
     return True
 
-# Done
+# Broken
 def check_column(board, num, column):
     for x in range(9):
         if board[x][column] != num:
@@ -40,16 +40,15 @@ def check_column(board, num, column):
             return False
     return True
 
+# Need to Do
 def check_block(board, num, s_index):
     # Check 9x9 block in board
     return True
 
+# Need to Do
 def check_all(board, num, row, column):
     if check_row(board, num, row):
-        if check_column(board, num, column):
-                return True
-        else:
-            return False
+        return True
     else:
         return False
 
