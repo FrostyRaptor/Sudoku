@@ -53,20 +53,18 @@ def check_all(board, num, row, column):
     else:
         return False
 
-def assign_num(board, x, y):
-    while True:
-        num = random.randint(1,9)
-        if check_all(board, num, x, y):
-            return str(num)
-        else:
-            continue
-
 def random_board(board):
     result = board
 
     for x in range(9):
         for y in range(9):
-            result[x][y] = assign_num(result, x, y)
+            while True:
+                num = str(random.randint(1,9))
+                if check_all(result, num, x, y):
+                    result[x][y] = num
+                    break
+                else:
+                    continue
 
     return result
 
